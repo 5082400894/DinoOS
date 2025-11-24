@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'about_device_screen.dart';
+import 'camera_screen.dart';
+import 'gallery_screen.dart';
+import 'file_manager_page.dart';
+import 'contacts_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -58,9 +63,48 @@ class HomeScreen extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                       // App navigations will go here
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("${app['name']} opening...")),
-                      );
+                      if (app['name'] == 'About Device') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AboutDeviceScreen(),
+                          ),
+                        );
+                      } else if (app['name'] == 'Camera') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CameraScreen(),
+                          ),
+                        );
+                      } else if (app['name'] == 'Gallery') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const GalleryScreen(),
+                          ),
+                        );
+                      } else if (app['name'] == 'File Manager') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FileManagerPage(),
+                          ),
+                        );
+                      }else if (app['name'] == 'Contacts') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ContactPage(),
+                          ),
+                        );
+                      }  
+
+                      else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("${app['name']} opening...")),
+                        );
+                      }
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.min,

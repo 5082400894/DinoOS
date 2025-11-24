@@ -6,10 +6,10 @@ class BootScreen extends StatefulWidget {
   const BootScreen({super.key});
 
   @override
-  State<BootScreen> createState() => _BootScreenState();
+  State<BootScreen> createState() => BootScreenState();
 }
 
-class _BootScreenState extends State<BootScreen> {
+class BootScreenState extends State<BootScreen> {
   final List<String> bootMessages = [
     "[OK] Initializing kernel...",
     "[OK] Loading system libraries...",
