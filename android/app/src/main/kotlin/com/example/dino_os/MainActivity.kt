@@ -44,26 +44,18 @@ class MainActivity : FlutterActivity() {
         val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val memInfo = ActivityManager.MemoryInfo()
         activityManager.getMemoryInfo(memInfo)
-        val totalMemory = memInfo.totalMem
-
-        
+        val totalMemory = memInfo.totalMem    
         info["Memory"] = formatBytes(totalMemory)
 
         
         // Storage info 
         val storagePath = applicationContext.filesDir.absolutePath
-
-        // val storagePath = if (android.os.Environment.getExternalStorageState() == android.os.Environment.MEDIA_MOUNTED) {android.os.Environment.getExternalStorageDirectory().absolutePath} else { applicationContext.filesDir.absolutePath }
-
         val stat = StatFs(storagePath)
         val totalStorage = stat.blockCountLong * stat.blockSizeLong
-        val availableStorage = stat.availableBlocksLong * stat.blockSizeLong
-
-        
+        val availableStorage = stat.availableBlocksLong * stat.blockSizeLong   
         info["Storage Total"] = formatBytes(totalStorage)
         info["Storage Available"] = formatBytes(availableStorage)
-
-        
+   
         
         return info
     }
