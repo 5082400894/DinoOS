@@ -16,9 +16,7 @@ class HomeScreen extends StatelessWidget {
       {"name": "File Manager", "icon": Icons.folder},
       {"name": "Camera", "icon": Icons.camera_alt},
       {"name": "Gallery", "icon": Icons.photo_library},
-      {"name": "Calculator", "icon": Icons.calculate},
       {"name": "Contacts", "icon": Icons.contacts},
-      {"name": "Settings", "icon": Icons.settings},
     ];
 
     return Scaffold(
